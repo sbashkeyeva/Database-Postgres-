@@ -1,0 +1,13 @@
+create database lab5;
+create table customers(customer_id int, cust_name varchar(255), city varchar(255),grade int,salesman_id int);
+create table orders(order_no int, purch_amt real,ord_date date,customer_id int,salesman_id int);
+select sum(purch_amt) from orders;
+select avg(purch_amt) from orders;
+select count(cust_name) from customers where cust_name IS NOT NULL group by cust_name;
+select min(purch_amt) from orders;
+select * from customers where cust_name like '%b';
+select order_no from orders where customer_id in(select customer_id from customers where city='New York');
+select * from customers where customer_id in (select customer_id from orders where purch_amt>10);
+select sum(grade) from customers;
+select * from customers where cust_name IS NOT NULL;
+select max(grade) from customers;
